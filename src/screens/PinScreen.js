@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Fontisto } from '@expo/vector-icons'
+
+
 import Text from '../components/Text'
+import NumberPad from '../components/NumberPad'
 
 export default PinScreen = ({ navigation }) => {
   const [pinCount, setPinCount] = useState(0)
   const totalPins = 6
+
+  useEffect(() => {
+    if(pinCount === totalPins) {
+      navigation.navigate("HomeScreen")
+    }
+  }, [pinCount])
+
   const renderPins = () => {
     const pins = []
 
@@ -23,6 +33,12 @@ export default PinScreen = ({ navigation }) => {
 
     return pins;
   };
+
+  const pressKey = (_, index) => {
+    setPinCount((prev) => {
+      return index != 10 ? prev + 1 : prev - 1;
+    })
+  }
   return (
     <Container>
       <Text center heavy title color="#964ff0" margin="32px 0 0 0">myBank</Text>
@@ -41,6 +57,7 @@ export default PinScreen = ({ navigation }) => {
         </Text>
       </UseTouch>
 
+      <NumberPad onPress={pressKey}/>
       <StatusBar barStyle="light-content" />
 
     </Container>
