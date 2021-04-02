@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Text from '../components/Text'
 
-export default TouchScreen = (navigation) => {
+export default TouchScreen = ({ navigation }) => {
   return (
     <Container>
       <Text center heavy title color="#964ff0">myBank</Text>
@@ -39,7 +39,7 @@ export default TouchScreen = (navigation) => {
         </Text>
       </PinAccess>
 
-      <StatusBar barStyle="light-content"/>
+      <StatusBar barStyle="light-content" />
     </Container>
   );
 };
