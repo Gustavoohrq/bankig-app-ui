@@ -12,7 +12,7 @@ export default PinScreen = ({ navigation }) => {
 
   useEffect(() => {
     if(pinCount === totalPins) {
-      navigation.navigate("HomeScreen")
+      navigation.navigate("Tabs")
     }
   }, [pinCount])
 
