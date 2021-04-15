@@ -1,9 +1,25 @@
 import React from 'react'
+import { Dimensions } from 'react-native';
 import styled from 'styled-components'
 import { FontAwesome5, MaterialIcons, AntDesign } from '@expo/vector-icons'
+import { LineChart } from 'react-native-chart-kit'
+
 import Text from '../components/Text'
+import purchaseData from '../../purchases'
 
 export default HomeScreen = () => {
+  const renderPurchase = ({ item }) => (
+    <Purchase>
+      <PurchaseInfo>
+        <Text heavy>{item.product}</Text>
+        <Text bold margin="2px 0 2px 0">{item.store}</Text>
+        <Text small color="#727479">{item.address}</Text>
+      </PurchaseInfo>
+      <Text text heavy>{item.price}</Text>
+
+    </Purchase>
+
+  )
   return (
     <Container>
       <Header>
@@ -22,6 +38,39 @@ export default HomeScreen = () => {
         Current Balance
       </Text>
 
+      <Chart>
+        <LineChart data={{
+          label: ["May", "June", "July", "Aug", "Sept", "Oct"],
+          datasets: [
+            {
+              data: [
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+              ],
+            },
+          ]
+        }} 
+        width={Dimensions.get("window").width}
+        height={250}
+        yAxisLabel="R$"
+        yAxisSuffix="k"
+        chartConfig={{
+          backgroundGradientFrom: "#1e1e1e",
+          backgroundGradientTo: "#1e1e1e",
+          color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
+          labelColor: () => `rgba(255, 255,255, 0.2)`,
+          strokeWidth: 3,
+        }}
+        withVerticalLines={false}
+        withHorizontalLines={false}
+        bezier
+        />
+      </Chart>
+
       <Purchases ListHeaderComponent={
         <>
           <TransactionsHeader>
@@ -34,7 +83,9 @@ export default HomeScreen = () => {
             <Search placeholder="Search Transactions" />
           </SearchContainer>
         </>
-      } />
+      }
+        data={purchaseData} renderItem={renderPurchase} showsVerticalScrollIndicator={false}
+      />
       <StatusBar barStyle="light-content" />
     </Container>
   )
@@ -87,9 +138,21 @@ const Search = styled.TextInput`
   padding: 8px 16px;
   font-family: "Avenir";
   color: #dbdbdb;
-
-
 `
+const Chart = styled.View`
+  margin: 32px 0;
 
+`;
+
+const Purchase = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-color: #393939;
+  padding-bottom: 12px;
+  margin-bottom: 12px
+`;
+
+const PurchaseInfo = styled.View``
 
 const StatusBar = styled.StatusBar``
