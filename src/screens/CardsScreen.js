@@ -44,7 +44,6 @@ export default CardScreen = () => {
         <CardDetails>
           <Text heavy>
             &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;{" "}
-            {item.number}
             <Text medium heavy>{item.number}</Text>
           </Text>
           <Text small heavy color="#727479" margin="4px 0 0 0">{item.exp}</Text>
