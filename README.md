@@ -3,7 +3,7 @@
 </h1> 
 
 <p align="center">
-    <img src="https://github.com/Gustavoohrq/bankig-app-ui/blob/master/assets/screens.jpg" width="200" height="350" />
+    <img src="https://github.com/Gustavoohrq/bankig-app-ui/blob/master/assets/screens.jpg"  />
 </p> 
 
 ## 📱 Paginas
