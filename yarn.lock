@@ -1657,6 +1657,13 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
+"@react-native-community/async-storage@^1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
+  integrity sha512-70WGaH3PKYASi4BThuEEKMkyAgE9k7VytBqmgPRx3MzJx9/MkspwqJGmn3QLCgHLIFUgF1pit2mWICbRJ3T3lg==
+  dependencies:
+    deep-assign "^3.0.0"
+
 "@react-native-community/cli-debugger-ui@^4.13.1":
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -3197,6 +3204,11 @@ expo-error-recovery@~1.4.0:
   dependencies:
     fbjs "1.0.0"
 
+expo-face-detector@~8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/expo-face-detector/-/expo-face-detector-8.4.0.tgz#696680bf8e90143538f85671827506ebf1482d30"
+  integrity sha512-XTzF6y9EirDU8xOINOGNQK7dBp0fqV7txUgAhfcHCHcKG0wdu9a8tXp5XkKFJLm9wyilOrBMpn/zq61n/FsIqw==
+
 expo-file-system@~9.3.0:
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-9.3.0.tgz#844c5197dbebf6c144d38e307372a49f3173186a"
@@ -3231,6 +3243,13 @@ expo-linking@~2.0.1:
     invariant "^2.2.4"
     qs "^6.5.0"
     url-parse "^1.4.4"
+
+expo-local-authentication@~9.5.0:
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/expo-local-authentication/-/expo-local-authentication-9.5.0.tgz#541167186539cb4af288cdeaf8460053922b42eb"
+  integrity sha512-d7T8cfXNig8rpyiw4u/2vHj2zhtThOTxrLUwx4GqFxDYqFyOJ5q5Q3lXFd10Tr5paMQvnskS0fAj70aG7Eb76g==
+  dependencies:
+    invariant "^2.2.4"
 
 expo-location@~10.0.0:
   version "10.0.0"

@@ -1,15 +1,22 @@
 import React from 'react';
 import { Fontisto, MaterialIcons } from '@expo/vector-icons'
 import styled from 'styled-components'
+import * as LocalAuthentication from 'expo-local-authentication';
 
 import Text from '../components/Text'
 
 export default TouchScreen = ({ navigation }) => {
+  validationScanFace = async () => {
+    let result = await LocalAuthentication.authenticateAsync();
+    if (result.success) { 
+      navigation.navigate("Tabs")
+    }
+  }
   return (
     <Container>
       <Text center heavy title color="#964ff0">myBank</Text>
 
-      <Touch onLongPress={() => navigation.navigate("Tabs")} delayPressIn={0}>
+      <Touch onLongPress={validationScanFace} delayPressIn={0}>
         <Circle bgColor="#1E1E1E">
           <Circle bgColor="#5196f405">
             <Circle bgColor="#5196f410">

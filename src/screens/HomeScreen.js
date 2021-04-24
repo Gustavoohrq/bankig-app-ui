@@ -7,7 +7,7 @@ import { LineChart } from 'react-native-chart-kit'
 import Text from '../components/Text'
 import purchaseData from '../../purchases'
 
-export default HomeScreen = () => {
+export default HomeScreen = ({ navigation}) => {
   const renderPurchase = ({ item }) => (
     <Purchase>
       <PurchaseInfo>
@@ -29,6 +29,7 @@ export default HomeScreen = () => {
           <Text>Gustavo H.</Text>
         </Welcome>
         <FontAwesome5 name="cog" size={24} color="#565656" />
+        <FontAwesome5 onPress={() => navigation.navigate("Touch")} name="sign-out-alt" style={{marginLeft: 10}} size={24} color="#565656" />
       </Header>
 
       <Text center title black>
