@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Fontisto } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-community/async-storage';
+import { Alert } from "react-native";
 
 
 import Text from '../components/Text'
@@ -8,34 +10,49 @@ import NumberPad from '../components/NumberPad'
 
 export default PinScreen = ({ navigation }) => {
   const [pinCount, setPinCount] = useState(0)
-  const totalPins = 6
+  const [pin, setPin] = useState('')
 
+  const totalPins = 6
+  const passwordFake = 123123
   useEffect(() => {
-    if(pinCount === totalPins) {
-      navigation.navigate("Tabs")
+    validatePassword = async () => {
+      if (pinCount === totalPins) {
+        if (parseInt(pin.join('')) === passwordFake) {
+          await AsyncStorage.setItem('@MyBank:password', pin.join(''));
+          navigation.navigate("Tabs")
+        }
+        else {
+          Alert.alert("Incorrect password")
+          setPinCount(0)
+          setPin('')
+        }
+      }
     }
+    validatePassword()
+
   }, [pinCount])
 
   const renderPins = () => {
     const pins = []
 
-    for (let x = 0; x < totalPins; x++) {
+    for (let x = 1; x <= totalPins; x++) {
       pins.push(
         x <= pinCount ? (
           <PinContainer key={x}>
-            <Pin/>
+            <Pin />
           </PinContainer>
         ) : (
-          <PinContainer key={x}/>
+          <PinContainer key={x} />
         )
-      )  
+      )
     }
 
     return pins;
   };
 
   const pressKey = (_, index) => {
-    setPinCount((prev) => {
+    setPin([...pin, parseInt(_)])
+    setPinCount(prev => {
       return index != 10 ? prev + 1 : prev - 1;
     })
   }
@@ -57,7 +74,7 @@ export default PinScreen = ({ navigation }) => {
         </Text>
       </UseTouch>
 
-      <NumberPad onPress={pressKey}/>
+      <NumberPad onPress={pressKey} />
       <StatusBar barStyle="light-content" />
 
     </Container>

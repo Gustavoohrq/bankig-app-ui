@@ -50,8 +50,8 @@ export default function App() {
   const TabStackScreen = () => {
     return (
       <TabStack.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}>
-        <TabStack.Screen name="SendRequest" component={SendRequestScreen} options={{title: "Send & Request"}}/>
         <TabStack.Screen name="Home" component={HomeScreen} />
+        <TabStack.Screen name="SendRequest" component={SendRequestScreen} options={{title: "Send & Request"}}/>
         <TabStack.Screen name="Cards" component={CardsScreen} options={{title: "My Cards"}}/>
       </TabStack.Navigator>
     )
